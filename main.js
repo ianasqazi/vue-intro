@@ -4,6 +4,9 @@ var app = new Vue({
         product: 'Socks',
         image: 'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg',
         description: 'Green socks',
-        href:'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg'
+        href:'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg',
+        inventory: 7,
+        onSale: true,
+
     }
 })
