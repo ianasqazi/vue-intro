@@ -2,6 +2,8 @@ var app = new Vue({
     el: '#app',
     data: {
         product: 'Socks',
-        description: 'My winter socks'
+        image: 'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg',
+        description: 'Green socks',
+        href:'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg'
     }
 })
