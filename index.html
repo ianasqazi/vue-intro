@@ -14,17 +14,11 @@
     <div class="nav-bar"></div>
 
     <div id="app">
-        <div class="header">
-            <h1>{{ intro }}</h1>
-        </div>
-
         <div class="cart">
-            <p> Cart ({{ cart }})</p>
+          <p>Cart({{ cart.length }})</p>
         </div>
-
-        <product :premium="premium" @add-to-cart="updateCart" @remove-from-cart="removeItem"></product>
-
-    </div>
+        <product :premium="premium" @add-to-cart="updateCart"></product>
+      </div> 
 
     <!-- VUE cnd  -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
