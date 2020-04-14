@@ -22,7 +22,10 @@
                 <img :src="image">
             </div>
             <div class="product-info">
-                <h1>{{product}}</h1>
+
+                <!-- <h1>{{ brand }} {{product}}</h1> -->
+                <h1>{{ title }}</h1>
+
 
                 <!-- v-if v-else-if v-else v-show  -->
 
@@ -34,7 +37,9 @@
                     :class=" { outOfStock : !inStock} ">Out of Stock</p>
                 
                 
-                <p v-show="onSale">ON SALE !!!</p>
+                <!-- <p v-show="onSale">ON SALE !!!</p> -->
+
+                <p>{{ sale }}</p>
                 <p>{{description}}</p>
 
                 <ul>
@@ -46,11 +51,18 @@
                     <li v-for="size in sizes">{{ size }}</li>
                 </ul>
 
-                <div v-for="variant in variants" 
+                <!-- <div v-for="variant in variants" 
                         :key="variant.variantId"
                         class="color-box"
                         :style="{backgroundColor: variant.variantColor}"
                         @mouseover="updateProduct(variant.variantImage)">
+                </div> -->
+
+                <div v-for="(variant, index) in variants" 
+                :key="variant.variantId"
+                class="color-box"
+                :style="{backgroundColor: variant.variantColor}"
+                @mouseover="updateProduct(index)">
                 </div>
 
                     <!-- <button v-on:click="cart += 1">Add to cart</button> -->
@@ -69,8 +81,8 @@
     </div>
 
     <!-- VUE cnd  -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
     <script src="main.js"></script>
