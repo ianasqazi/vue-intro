@@ -15,7 +15,7 @@
 
     <div id="app">
         <div class="header">
-            <h1>Hello Vue World !!!</h1>
+            <h1>{{ intro }}</h1>
         </div>
         <div class="product">
             <div class="product-image">
@@ -30,6 +30,18 @@
                 <p v-else>Out of Stock</p>
                 <p v-show="onSale">ON SALE !!!</p>
                 <p>{{description}}</p>
+                <ul>
+                    <li v-for="detail in details">{{ detail }}</li>
+                </ul>
+
+                <ul>
+                    Sizes Available :
+                    <li v-for="size in sizes">{{ size }}</li>
+                </ul>
+
+                <div v-for="variant in variants" :key="variant.variantId">
+                    <p>{{ variant.variantColor}}</p>
+                </div>
 
             </div>
 
