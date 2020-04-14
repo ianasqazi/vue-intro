@@ -40,6 +40,20 @@ Vue.component('product', {
 
     </div>
 
+    <div>
+        <h3> Reviews </h3>
+        <p v-if="!reviews.length"> There are no reviews yet ... </p>
+        <ul>
+        <li v-for="review in reviews">
+        <p>{{ review.name }}</p>
+        <p>{{ review.rating }}</p>
+        <p>{{ review.review }}</p>
+        </li>
+        </ul>
+    </div>
+
+    <product-review @review-submitted="addReview"></product-review>
+
 </div>`,
 data () {
     return {
@@ -68,7 +82,8 @@ data () {
     
             }
         ],
-        sizes: ["Large", "Medium", "Small"],        
+        sizes: ["Large", "Medium", "Small"],
+        reviews: [],
     }
 }
 ,
@@ -79,10 +94,12 @@ methods: {
     },
     removeFromCart(){
         this.$emit('remove-from-cart', this.variants[this.selectedVariant].variantId)
-
     },
     updateProduct(index) {
         this.selectedVariant=index
+    },
+    addReview(productReview) {
+        this.reviews.push(productReview)
     }
 },
 computed: {
@@ -126,6 +143,59 @@ Vue.component('productDetails', {
     template: `<ul>
     <li v-for="detail in details">{{ detail }}</li>
     </ul>`,
+})
+
+Vue.component('product-review', {
+    template: `
+    <form class="review-form" @submit.prevent="onSubmit">
+    <p>
+      <label for="name">Name:</label>
+      <input id="name" v-model="name" placeholder="name">
+    </p>
+    
+    <p>
+      <label for="review">Review:</label>      
+      <textarea id="review" v-model="review"></textarea>
+    </p>
+    
+    <p>
+      <label for="rating">Rating:</label>
+      <select id="rating" v-model.number="rating">
+        <option>5</option>
+        <option>4</option>
+        <option>3</option>
+        <option>2</option>
+        <option>1</option>
+      </select>
+    </p>
+        
+    <p>
+      <input type="submit" value="Submit">  
+    </p>    
+  
+  </form>
+    `,
+    data() {
+        return {
+            name: null,
+            review: null,
+            rating: null
+        }
+    },
+    methods: {
+        onSubmit() {
+            let productReview = {
+                name: this.name, 
+                review: this.review,
+                rating: this.rating
+            }
+            this.$emit('review-submitted', productReview)
+            this.name = null,
+            this.review = null, 
+            this.rating = null
+
+        },
+    },
 })
 
 var app = new Vue({
