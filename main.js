@@ -33,9 +33,7 @@ Vue.component('product', {
                     :disabled="!inStock"
                     :class=" { disabledButton: !inStock }">Add to Cart</button>
 
-            <div class="cart">
-                <p> Cart ({{ cart }})</p>
-            </div>
+            <button v-on:click="removeFromCart"> Remove from Cart</button>
 
             <p> User is premium: {{ premium }} </p>
             <p> Shipping: {{ shipping }} </p>
@@ -60,7 +58,7 @@ data () {
                 variantId: 2234,
                 variantColor: "green",
                 variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg',
-                variantQuantity: 0
+                variantQuantity: 30
             },            
             {
                 variantId: 2235,
@@ -70,22 +68,21 @@ data () {
     
             }
         ],
-        sizes: ["Large", "Medium", "Small"],
-        cart: 0,
-        
+        sizes: ["Large", "Medium", "Small"],        
     }
 }
 ,
 methods: {
-    addToCart: function () {
-        this.cart += 1;
+    addToCart() {
+        // this.cart += 1;
+        this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
     },
-    // updateProduct: function (variantImage) {
-    //     this.image=variantImage;
-    // },
-    updateProduct: function (index) {
+    removeFromCart(){
+        this.$emit('remove-from-cart', this.variants[this.selectedVariant].variantId)
+
+    },
+    updateProduct(index) {
         this.selectedVariant=index
-        console.log(index)
     }
 },
 computed: {
@@ -136,6 +133,22 @@ var app = new Vue({
     data: {
         intro: "Hello Vue World !!!",
         premium: false,
+        // cart: 0,
+        cart: [],
+    },
+    methods: {
+        updateCart(id) {
+            // this.cart += 1
+            this.cart.push(id)
+        },
+        removeItem(id) {
+            for(var i = this.cart.length - 1; i >= 0; i--) {
+              if (this.cart[i] === id) {
+                 this.cart.splice(i, 1);
+              }
+            }
+          }
+
     }
-    
+
 })

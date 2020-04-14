@@ -18,7 +18,11 @@
             <h1>{{ intro }}</h1>
         </div>
 
-        <product :premium="premium"></product>
+        <div class="cart">
+            <p> Cart ({{ cart }})</p>
+        </div>
+
+        <product :premium="premium" @add-to-cart="updateCart" @remove-from-cart="removeItem"></product>
 
     </div>
 
