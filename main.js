@@ -7,6 +7,7 @@ var app = new Vue({
         description: 'Green socks',
         href:'https://www.vuemastery.com/images/challenges/vmSocks-green-onWhite.jpg',
         inventory: 7,
+        inStock: false,
         onSale: true,
         details: ["80% cotton", "20% polyester", "Gender-neutral"],
         variants: [
