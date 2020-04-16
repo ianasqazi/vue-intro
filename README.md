@@ -1,19 +1,29 @@
 # INTRO TO VUE.js 
 
-![COVID-19 DASHBOARD - REACT](screenshots/1.png)
-![COVID-19 DASHBOARD - REACT](screenshots/2.png)
+![Vue Sample1](screenshots/1.png)
+![Vue Sample2](screenshots/2.png)
 
-In the current state of the world during Corona virus pandemic 🦠 and with many of us in lockdown, I thought it would be a good idea to put down Netflix for a bit, and build a COVID Dashboard with MAP showing statistics of increase of corona virus around the world. 
+This page is built using the introduction to vue.js tutorials. The video tutorials covers the following topics : 
 
-Hover over the countries to see additional details for each country in tooltips. Used the api from  https://corona.lmao.ninja/v2/jhucsse & https://documenter.getpostman.com/view/2568274/SzS8rjbe?version=latest2 which returns a list of countries and provinces with COVID-19 stats. Then, mapped the data with the co-ordinates in the JSON to the map along with colour schemes and circle radius size based on the number. 
+1. Creating the Vue instance 
+2. Attribute Binding
+3. Conditional Rendering
+4. List Rendering
+5. Event Handling 
+6. Class & Style Binding
+7. Computed Properties
+8. Creating Components
+9. Communicating Events 
+10. Forms 
+11. Tabs 
 
-Feel free to use the code from the links provided below. My version is a very simple version and more functionality but it's up to you to include more features. 
+Feel free to use the code from the links provided below. 
 
 ## Links / Resources / API's USED
 
-**[CODESANDBOX](https://codesandbox.io/s/covid19-dashboard-kmv7r)** 
+**[GITHUB PAGES](https://ianasqazi.github.io/vue-intro/)** 
 
-**[GITHUB - REPO](https://github.com/ianasqazi/covid-dashboard)** 
+**[GITHUB REPO](https://github.com/ianasqazi/vue-intro)** 
 
 **[COVID API  - DATA 1](https://docs.corona.lmao-xd.wtf/version-2)** 
 
